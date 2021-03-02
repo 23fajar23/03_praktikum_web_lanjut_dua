@@ -29,9 +29,11 @@ use App\Http\Controllers\ContactController;
 Route::get('/',[HomeController::class,'index']);
 
 // Route Prefix
-Route::get('/program',[ProgramController::class,'program']);    
+Route::prefix('/program')->group(function () {
+    Route::get('/',[ProgramController::class,'program']);
+});
 
-// Route Public
+// Route 
 Route::get('/about',[AboutController::class,'about']);
 
 // Route Resource
